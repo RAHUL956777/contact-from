@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact from ushing node js</title>
+</head>
+
+<body>
+    <div class="container" onsubmit="sendEmail(); reset(); return false;">
+        <form>
+            <h3>WELCOME IN CONTACT</h3>
+            <input type="text" id="name" placeholder="YOUR NAME" required>
+            <input type="email" id="email" placeholder="Email id" required>
+            <input type="text" id="phone" placeholder="Phone no." required>
+            <textarea id="message" cols="10" rows="4" placeholder="How know about us"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "dase16583@gmail.com",
+                Password: "password",
+                To: 'them@website.com',
+                From: document.getElementById("email").value,
+                Subject: "New contact from",
+                Body: "And this is the body"
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+</body>
+
+</html>
